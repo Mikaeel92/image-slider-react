@@ -24,7 +24,16 @@ const App = () => {
   }, [])
 
   return (
-    <div className='text-3xl text-red-600'>App</div>
+    <div className='text-3xl text-red-600'>
+      {
+        images && images.length ?
+        images.map((item, index) => (
+          <div>
+            <img src={item.download_url} alt={item.download_url} key={index}/>
+          </div>
+      )) : null
+      }
+    </div>
   )
 }
 
