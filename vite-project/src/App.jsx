@@ -24,12 +24,17 @@ const App = () => {
   }, [])
 
   return (
-    <div className='text-3xl text-red-600'>
+    <div className='flex flex-col items-center justify-center w-screen h-screen mt-40'>
       {
         images && images.length ?
         images.map((item, index) => (
-          <div>
-            <img src={item.download_url} alt={item.download_url} key={index}/>
+          <div 
+          key={index}
+          className='flex flex-col items-center justify-center w-[600px] h-[450px]'>
+            <img 
+            src={item.download_url}
+            alt={item.download_url} 
+            className={ index === currentSlide ? 'w-full h-full rounded-md shadow-md' : 'hidden' }/>
           </div>
       )) : null
       }
