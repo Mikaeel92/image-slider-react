@@ -8,8 +8,16 @@ const App = () => {
   const [errorMsg, setErrorMsg] = useState(null)
 
   const fetchData = async () => {
-
-  }
+    try {
+      setLoading(true)
+      const response = await fetch('https://picsum.photos/v2/list?page=1&limit=10')
+      const data = await response.json()
+      if(data) {
+        setImages(data)
+        setLoading(false)}
+      } catch (errorMsg) {
+      setErrorMsg(error)
+      setLoading(false)}}
 
   useEffect(() => {
     fetchData()
